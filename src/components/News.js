@@ -64,7 +64,7 @@ export class News extends Component {
                         </div>
                     </InfiniteScroll>
                 </div>
-                {this.state.articles.length === this.state.totalResults && this.state.articles.length !== 0 ? <Footer/> : ""}
+                {this.state.articles.length === this.state.totalResults && this.state.articles.length !== 0 ? <Footer /> : ""}
             </div>
         )
     }
