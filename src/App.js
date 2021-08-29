@@ -10,6 +10,7 @@ import News from './components/News';
 import LoadingBar from 'react-top-loading-bar';
 
 export default class App extends Component {
+  api_key = process.env.REACT_APP_API_KEY; /* enviroment variable coming from .env.local file "create react app environment variables"*/
   state = {
     progress: 0
   }
@@ -30,7 +31,7 @@ export default class App extends Component {
                 color='#f11946'
                 progress={this.state.progress}
               />
-              <News setProgress={this.setProgress} key="general" pageSize={9} category="general" />
+              <News api_key={this.api_key} setProgress={this.setProgress} key="general" pageSize={9} category="general" />
             </Route>
             <Route exact path="/business">
               <Navbar category="business" />
@@ -39,7 +40,7 @@ export default class App extends Component {
                 color='#f11946'
                 progress={this.state.progress}
               />
-              <News setProgress={this.setProgress} key="business" pageSize={9} category="business" />
+              <News api_key={this.api_key} setProgress={this.setProgress} key="business" pageSize={9} category="business" />
             </Route>
             <Route exact path="/entertainment">
               <Navbar category="entertainment" />
@@ -48,7 +49,7 @@ export default class App extends Component {
                 color='#f11946'
                 progress={this.state.progress}
               />
-              <News setProgress={this.setProgress} key="entertainment" pageSize={9} category="entertainment" />
+              <News api_key={this.api_key} setProgress={this.setProgress} key="entertainment" pageSize={9} category="entertainment" />
             </Route>
             <Route exact path="/health">
               <Navbar category="health" />
@@ -57,7 +58,7 @@ export default class App extends Component {
                 color='#f11946'
                 progress={this.state.progress}
               />
-              <News setProgress={this.setProgress} key="health" pageSize={9} category="health" />
+              <News api_key={this.api_key} setProgress={this.setProgress} key="health" pageSize={9} category="health" />
             </Route>
             <Route exact path="/science">
               <Navbar category="science" />
@@ -66,7 +67,7 @@ export default class App extends Component {
                 color='#f11946'
                 progress={this.state.progress}
               />
-              <News setProgress={this.setProgress} key="science" pageSize={9} category="science" />
+              <News api_key={this.api_key} setProgress={this.setProgress} key="science" pageSize={9} category="science" />
             </Route>
             <Route exact path="/sports">
               <Navbar category="sports" />
@@ -75,7 +76,7 @@ export default class App extends Component {
                 color='#f11946'
                 progress={this.state.progress}
               />
-              <News setProgress={this.setProgress} key="sports" pageSize={9} category="sports" />
+              <News api_key={this.api_key} setProgress={this.setProgress} key="sports" pageSize={9} category="sports" />
             </Route>
             <Route exact path="/technology">
               <Navbar category="technology" />
@@ -84,7 +85,7 @@ export default class App extends Component {
                 color='#f11946'
                 progress={this.state.progress}
               />
-              <News setProgress={this.setProgress} key="technology" pageSize={9} category="technology" />
+              <News api_key={this.api_key} setProgress={this.setProgress} key="technology" pageSize={9} category="technology" />
             </Route>
           </Switch>
         </Router>
