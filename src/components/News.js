@@ -9,25 +9,25 @@ export class News extends Component {
         super();
         this.state = {
             articles: [],
-            loading: false,
+            loading: true,
             page: 1,
             totalResults: 0
         }
     }
 
     async componentDidMount() {
-        console.log(this.state.articles.length);
+        this.props.setProgress(10);
         const url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=dfc513a13c1c4a0883659ff782cc649d&page=${this.state.page}&pageSize=${this.props.pageSize}`;
-        this.setState({
-            loading: true
-        })
         let data = await fetch(url);
+        this.props.setProgress(30);
         let parsedData = await data.json();
+        this.props.setProgress(60);
         this.setState({
             articles: parsedData.articles,
             loading: false,
             totalResults: parsedData.totalResults
         });
+        this.props.setProgress(100);
     }
     fetchMoreData = async () => {
         this.setState({ page: this.state.page + 1 });
