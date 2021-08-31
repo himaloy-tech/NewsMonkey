@@ -14,8 +14,7 @@ const News = (props) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     } 
 
-    useEffect( async () => {
-        document.title = `${capitalize(props.category)} - NewsMonkey`;
+    const news = async () => {
         props.setProgress(10);
         const url = `https://newsapi.org/v2/top-headlines?country=in&category=${props.category}&apiKey=${props.api_key}&page=${page}&pageSize=${props.pageSize}`;
         let data = await fetch(url);
@@ -26,6 +25,12 @@ const News = (props) => {
         settotalResults(parsedData.totalResults);
         setLoading(false);
         props.setProgress(100);
+    };
+
+    useEffect(() => {
+        document.title = `${capitalize(props.category)} - NewsMonkey`;
+        news();
+        // eslint-disable-next-line
     }, [])
 
     const fetchMoreData = async () => {
